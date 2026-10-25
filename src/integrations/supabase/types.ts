@@ -22,6 +22,7 @@ export type Database = {
           id: string
           mime_type: string
           size_bytes: number
+          storage_path: string | null
           vault_id: string
         }
         Insert: {
@@ -31,6 +32,7 @@ export type Database = {
           id?: string
           mime_type?: string
           size_bytes: number
+          storage_path?: string | null
           vault_id: string
         }
         Update: {
@@ -40,6 +42,7 @@ export type Database = {
           id?: string
           mime_type?: string
           size_bytes?: number
+          storage_path?: string | null
           vault_id?: string
         }
         Relationships: [
