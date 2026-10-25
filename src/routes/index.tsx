@@ -370,7 +370,7 @@ function VaultScreen({
     setUploading(true);
     try {
       for (const file of Array.from(fileList)) {
-        if (file.size > 8 * 1024 * 1024) {
+        if (file.size > 5 * 1024 * 1024 * 1024) {
           throw new Error(`"${file.name}" is over 8 MB.`);
         }
         const base64 = await readAsBase64(file);
