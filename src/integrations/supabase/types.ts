@@ -14,7 +14,68 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      vault_files: {
+        Row: {
+          content_base64: string
+          created_at: string
+          filename: string
+          id: string
+          mime_type: string
+          size_bytes: number
+          vault_id: string
+        }
+        Insert: {
+          content_base64: string
+          created_at?: string
+          filename: string
+          id?: string
+          mime_type?: string
+          size_bytes: number
+          vault_id: string
+        }
+        Update: {
+          content_base64?: string
+          created_at?: string
+          filename?: string
+          id?: string
+          mime_type?: string
+          size_bytes?: number
+          vault_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vault_files_vault_id_fkey"
+            columns: ["vault_id"]
+            isOneToOne: false
+            referencedRelation: "vaults"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      vaults: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          password_hash: string
+          password_salt: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          password_hash: string
+          password_salt: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          password_hash?: string
+          password_salt?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
