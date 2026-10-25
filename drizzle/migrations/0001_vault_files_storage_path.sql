@@ -1,0 +1,2 @@
+alter table public.vault_files add column storage_path text;
+comment on column public.vault_files.content_base64 is 'DEPRECATED: replaced by storage_path (files now live in the vault-files storage bucket); kept only to serve files uploaded before the switch';
